@@ -13,3 +13,6 @@ env/
 # IDEs and Editors
 .vscode/
 
+# SSL Certificates
+*.pem
+

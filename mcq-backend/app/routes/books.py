@@ -149,7 +149,7 @@ async def update_book(book_id: str, data: dict = Body(...), db: AsyncSession = D
 
 
 @router.delete("/{book_id}", summary="Delete book metadata and optionally vectordb entries (admin only)")
-async def delete_book(book_id: str, remove_vector: bool = False, db: AsyncSession = Depends(get_db), current_user = Depends(require_admin)):
+async def delete_book(book_id: str, remove_vector: bool = True, db: AsyncSession = Depends(get_db), current_user = Depends(require_admin)):
     logger.info("Delete book request: admin_id=%s book_id=%s remove_vector=%s", current_user.id, book_id, remove_vector)
     q = await db.execute(select(models.Book).where(models.Book.book_id == book_id))
     book = q.scalars().first()
