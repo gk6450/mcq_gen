@@ -1,0 +1,141 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* ---------- LIGHT THEME (root) - professional blue ---------- */
+:root {
+  --radius: 0.625rem;
+
+  /* page / text */
+  --background: #F8FAFF;           /* very light blue / off-white */
+  --foreground: #0F172A;           /* deep slate for text */
+
+  /* surfaces */
+  --card: #FFFFFF;
+  --card-foreground: #0F172A;
+  --popover: #FFFFFF;
+  --popover-foreground: #0F172A;
+
+  /* primary / accent */
+  --primary: #3B82F6;              /* main brand blue */
+  --primary-foreground: #FFFFFF;
+  --secondary: #60A5FA;            /* lighter, for accents */
+  --secondary-foreground: #08203A;
+  --accent: #2563EB;               /* secondary strong blue */
+  --accent-foreground: #FFFFFF;
+
+  /* muted / borders */
+  --muted: #F1F5F9;
+  --muted-foreground: #64748B;
+  --border: #E6EEF9;
+  --input: #F8FAFF;
+  --ring: #BFDBFE;
+
+  /* destructive */
+  --destructive: #EF4444;
+
+  /* charts (palette tuned for blues + complementary) */
+  --chart-1: #1E3A8A;   /* deep indigo-blue */
+  --chart-2: #2563EB;   /* strong blue */
+  --chart-3: #60A5FA;   /* sky blue */
+  --chart-4: #93C5FD;   /* pale blue */
+  --chart-5: #7DD3FC;   /* complementary accent */
+
+  /* sidebar */
+  --sidebar: #e7f3ff;
+  --sidebar-foreground: #0F172A;
+  --sidebar-primary: #3B82F6;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #60A5FA;
+  --sidebar-accent-foreground: #08203A;
+  --sidebar-border: #E6EEF9;
+  --sidebar-ring: #BFDBFE;
+}
+
+/* ---------- DARK THEME - blue-centric dark mode ---------- */
+.dark {
+  --background: #071330;           /* deep navy background */
+  --foreground: #E6F2FF;          /* pale blue-ish text */
+  --card: #092238;                /* card surface in dark */
+  --card-foreground: #E6F2FF;
+  --popover: #0B2A44;
+  --popover-foreground: #E6F2FF;
+
+  /* keep primary visible on dark */
+  --primary: #60A5FA;             /* slightly lighter primary on dark */
+  --primary-foreground: #05203A;
+  --secondary: #93C5FD;
+  --secondary-foreground: #021124;
+  --accent: #3B82F6;
+  --accent-foreground: #FFFFFF;
+
+  --muted: #0E1E2B;
+  --muted-foreground: #9BB7D9;
+  --border: rgba(255,255,255,0.06);
+  --input: rgba(255,255,255,0.03);
+  --ring: #2563EB;
+
+  /* charts for dark background (slightly shifted for contrast) */
+  --chart-1: #93C5FD;
+  --chart-2: #60A5FA;
+  --chart-3: #3B82F6;
+  --chart-4: #2563EB;
+  --chart-5: #1E3A8A;
+
+  --sidebar: #071330;
+  --sidebar-foreground: #E6F2FF;
+  --sidebar-primary: #60A5FA;
+  --sidebar-primary-foreground: #021124;
+  --sidebar-accent: #93C5FD;
+  --sidebar-accent-foreground: #021124;
+  --sidebar-border: rgba(255,255,255,0.06);
+  --sidebar-ring: #2563EB;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
