@@ -1,6 +1,8 @@
 # app/database.py
 import os
 from dotenv import load_dotenv
+from typing import AsyncGenerator
+
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import sessionmaker, declarative_base
 from app.logger import get_logger
@@ -33,7 +35,10 @@ connect_args = {
 }
 
 logger.info("Connecting to database without SSL")
-logger.info("Configured DB session timezone init_command: SET time_zone = '%s'", MYSQL_INIT_TIMEZONE)
+logger.info(
+    "Configured DB session timezone init_command: SET time_zone = '%s'",
+    MYSQL_INIT_TIMEZONE,
+)
 logger.debug("Final DATABASE_URL used (masked): %s", DB_URL.replace("://", "://***"))
 
 # Create async engine
@@ -42,14 +47,24 @@ engine = create_async_engine(
     echo=False,
     future=True,
     pool_pre_ping=True,
-    connect_args=connect_args
+    connect_args=connect_args,
 )
 
-AsyncSessionLocal = sessionmaker(bind=engine, class_=AsyncSession, expire_on_commit=False)
+# Create a session factory. Each call to SessionLocal() returns a new AsyncSession
+AsyncSessionLocal = sessionmaker(
+    bind=engine,
+    class_=AsyncSession,
+    expire_on_commit=False,
+    future=True,
+)
 
+# Base for declarative models
 Base = declarative_base()
 
-# FastAPI dependency
-async def get_db():
+
+# FastAPI dependency — Proper session management:
+# Each request will get a fresh AsyncSession and it will be closed after use.
+# Use in your route functions as: async def route(db: AsyncSession = Depends(get_db))
+async def get_db() -> AsyncGenerator[AsyncSession, None]:
     async with AsyncSessionLocal() as session:
         yield session
