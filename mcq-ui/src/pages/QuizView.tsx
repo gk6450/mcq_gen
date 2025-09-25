@@ -1,5 +1,5 @@
 // src/pages/QuizView.tsx
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import api from '../api'
 import { Card } from '../components/ui/card'

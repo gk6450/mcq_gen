@@ -1,4 +1,4 @@
-import React, { useEffect, useState, type JSX } from "react";
+import { useEffect, useState, type JSX } from "react";
 import api from "@/api";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";

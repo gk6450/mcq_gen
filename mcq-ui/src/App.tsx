@@ -1,5 +1,5 @@
 // src/App.tsx
-import React, { type JSX } from 'react'
+import { type JSX } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Dashboard from './pages/Dashboard'

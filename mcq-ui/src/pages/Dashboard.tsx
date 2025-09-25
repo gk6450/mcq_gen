@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import api from '../api'
 import toast from 'react-hot-toast'
@@ -223,7 +223,7 @@ export default function Dashboard() {
                           activeIndex={activeIndex ?? undefined}
                           activeShape={renderActiveShape}
                         >
-                          {buckets.map((entry, index) => (
+                          {buckets.map((_entry, index) => (
                             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                           ))}
                         </Pie>
