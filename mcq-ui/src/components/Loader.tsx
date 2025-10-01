@@ -1,4 +1,3 @@
-// src/components/ui/Loader.tsx
 import React from "react";
 
 export const Loader: React.FC<{ size?: number; label?: string }> = ({ size = 20, label }) => {

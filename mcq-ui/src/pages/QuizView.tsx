@@ -1,4 +1,3 @@
-// src/pages/QuizView.tsx
 import { useEffect, useRef, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import api from '../api'

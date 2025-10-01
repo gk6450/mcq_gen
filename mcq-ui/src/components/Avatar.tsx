@@ -1,4 +1,3 @@
-// src/components/Avatar.tsx
 import React from "react"
 
 export const Avatar: React.FC<{ name?: string; size?: number }> = ({ name = "U", size = 36 }) => {

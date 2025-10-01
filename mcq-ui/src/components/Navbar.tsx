@@ -1,4 +1,3 @@
-// src/components/Navbar.tsx
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { Button } from './ui/button'

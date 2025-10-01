@@ -1,4 +1,3 @@
-// src/contexts/AuthContext.tsx
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import api from '../api'
 import toast from 'react-hot-toast'
