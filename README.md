@@ -1,5 +1,7 @@
 # MCQ Generator (AI-powered MCQ Platform)
 
+[Try it out](https://mcq-gen-two.vercel.app/)
+
 MCQ Generator is an **AI-powered** web application that converts uploaded PDFs (single chapter, multiple chapters, or whole books) into interactive multiple-choice quizzes. It uses a Retrieval-Augmented Generation (RAG) pipeline: documents are chunked, embedded, and stored in a vector database (Pinecone). When generating quizzes, the app retrieves relevant chunks and uses an LLM (Gemini/ OpenAI) together with the retrieved context to produce high-quality, context-aware MCQs.
 
 ---
